@@ -63,7 +63,7 @@ export function Hero() {
           <div className="rounded-3xl border border-primary/10 bg-white p-3 shadow-2xl shadow-primary/10">
             <div className="relative aspect-video overflow-hidden rounded-2xl bg-primary/5">
               <Image
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuAJSOMTXeVAllSfBxiqB_BD3isf2LMCP6qGJlX3u5PXQfYiXkNfxQrMpIZXRZQdYsrntSlszHO5RG_4iYvF6CEdqkbE0rHDXYysaiHpDDZ-4R_Z-Kj3uCu9nUhoK5ek7KKSEQ0OMM5cjq9OEm7q04rIRO3Q_y0bpwvUBk12mpkVCc5aRfhffRZMqhWTS98z1nwxm2qVLGLwDPE0c-KG6RaG6t16sSlVJYHclxW-mr3CxgJWOBk9k538q1DbGK2E3F7cse-joPgBRg8"
+                src="/images/image-hero-section.jpeg"
                 alt="Panel de analisis de oportunidades de franquicia"
                 fill
                 sizes="(min-width: 1024px) 50vw, 100vw"
