@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>e-Franquicias | Invest in Curated Franchises</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#3e1c7d",
+                        "accent": "#00E5FF",
+                        "background-light": "#f7f6f8",
+                        "background-dark": "#17131f",
+                    },
+                    fontFamily: {
+                        "display": ["Manrope", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "2xl": "1rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Manrope', sans-serif;
+            scroll-behavior: smooth;
+        }
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+        .cyan-glow:hover {
+            box-shadow: 0 0 15px rgba(0, 229, 255, 0.4);
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-[#141217] selection:bg-accent/30">
+<!-- Sticky Navigation -->
+<nav class="sticky top-0 z-50 glass-nav border-b border-primary/10">
+<div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="size-10 bg-primary rounded-lg flex items-center justify-center text-white">
+<span class="material-symbols-outlined text-2xl">account_balance</span>
+</div>
+<h2 class="text-primary text-xl font-800 leading-tight tracking-tight">e-Franquicias</h2>
+</div>
+<div class="hidden md:flex items-center gap-10">
+<a class="text-sm font-semibold text-primary/80 hover:text-primary transition-colors" href="#how-it-works">How it Works</a>
+<a class="text-sm font-semibold text-primary/80 hover:text-primary transition-colors" href="#categories">Categories</a>
+<a class="text-sm font-semibold text-primary/80 hover:text-primary transition-colors" href="#faq">FAQ</a>
+</div>
+<div class="flex items-center gap-4">
+<button class="bg-accent text-primary px-6 py-2.5 rounded-lg text-sm font-bold tracking-wide cyan-glow transition-all duration-300 transform hover:-translate-y-0.5">
+                    Start Investing
+                </button>
+</div>
+</div>
+</nav>
+<!-- Hero Section -->
+<section class="relative overflow-hidden pt-20 pb-32">
+<div class="absolute top-0 right-0 -z-10 w-1/2 h-full opacity-10 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-primary via-transparent to-transparent"></div>
+<div class="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+<div class="flex flex-col gap-8">
+<div class="inline-flex items-center gap-2 px-3 py-1 bg-primary/10 rounded-full w-fit">
+<span class="material-symbols-outlined text-primary text-sm">verified</span>
+<span class="text-xs font-bold text-primary uppercase tracking-widest">Trusted by 5,000+ Investors</span>
+</div>
+<h1 class="text-primary text-5xl lg:text-7xl font-black leading-[1.1] tracking-tighter">
+                    Invest in Curated <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent">Franchises</span> from $2,000
+                </h1>
+<div class="flex flex-col gap-4">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-accent fill-1">check_circle</span>
+<p class="text-lg font-medium text-primary/70">Low Entry Barrier for Retail Investors</p>
+</div>
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-accent fill-1">check_circle</span>
+<p class="text-lg font-medium text-primary/70">Expert Curation &amp; Due Diligence</p>
+</div>
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-accent fill-1">check_circle</span>
+<p class="text-lg font-medium text-primary/70">Diversified Portfolio Management</p>
+</div>
+</div>
+<div class="flex flex-wrap gap-4 pt-4">
+<button class="bg-accent text-primary px-8 py-4 rounded-xl text-base font-bold cyan-glow transition-all">
+                        See Opportunities
+                    </button>
+<button class="bg-white border-2 border-primary/10 text-primary px-8 py-4 rounded-xl text-base font-bold hover:bg-primary/5 transition-all">
+                        Learn More
+                    </button>
+</div>
+</div>
+<div class="relative group">
+<div class="absolute inset-0 bg-primary/10 rounded-2xl blur-3xl transform group-hover:scale-105 transition-transform"></div>
+<div class="relative bg-white p-4 rounded-2xl shadow-2xl border border-primary/5">
+<div class="aspect-video w-full rounded-xl bg-primary/5 overflow-hidden">
+<img alt="Dashboard Illustration" class="w-full h-full object-cover" data-alt="Professional financial dashboard showing franchise investment growth metrics" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAJSOMTXeVAllSfBxiqB_BD3isf2LMCP6qGJlX3u5PXQfYiXkNfxQrMpIZXRZQdYsrntSlszHO5RG_4iYvF6CEdqkbE0rHDXYysaiHpDDZ-4R_Z-Kj3uCu9nUhoK5ek7KKSEQ0OMM5cjq9OEm7q04rIRO3Q_y0bpwvUBk12mpkVCc5aRfhffRZMqhWTS98z1nwxm2qVLGLwDPE0c-KG6RaG6t16sSlVJYHclxW-mr3CxgJWOBk9k538q1DbGK2E3F7cse-joPgBRg8"/>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- How It Works -->
+<section class="py-24 bg-white" id="how-it-works">
+<div class="max-w-7xl mx-auto px-6">
+<div class="text-center max-w-2xl mx-auto mb-20">
+<h2 class="text-primary text-4xl font-black mb-4">How It Works</h2>
+<p class="text-primary/60 text-lg">Our four-step process is designed to make franchise investment accessible, transparent, and highly profitable.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-4 gap-8 relative">
+<!-- Connectors for Desktop -->
+<div class="hidden md:block absolute top-12 left-1/4 right-1/4 h-0.5 bg-primary/10 -z-0"></div>
+<!-- Step 1 -->
+<div class="relative flex flex-col items-center text-center group">
+<div class="size-24 rounded-full bg-background-light border-4 border-white shadow-lg flex items-center justify-center mb-6 group-hover:bg-primary transition-colors duration-500 z-10">
+<span class="material-symbols-outlined text-4xl text-primary group-hover:text-white">search</span>
+</div>
+<h3 class="text-xl font-bold text-primary mb-2">Browse</h3>
+<p class="text-primary/60 text-sm">Explore a wide range of hand-picked franchise opportunities.</p>
+</div>
+<!-- Step 2 -->
+<div class="relative flex flex-col items-center text-center group">
+<div class="size-24 rounded-full bg-background-light border-4 border-white shadow-lg flex items-center justify-center mb-6 group-hover:bg-primary transition-colors duration-500 z-10">
+<span class="material-symbols-outlined text-4xl text-primary group-hover:text-white">analytics</span>
+</div>
+<h3 class="text-xl font-bold text-primary mb-2">Evaluate</h3>
+<p class="text-primary/60 text-sm">Analyze detailed financial metrics and performance data.</p>
+</div>
+<!-- Step 3 -->
+<div class="relative flex flex-col items-center text-center group">
+<div class="size-24 rounded-full bg-background-light border-4 border-white shadow-lg flex items-center justify-center mb-6 group-hover:bg-primary transition-colors duration-500 z-10">
+<span class="material-symbols-outlined text-4xl text-primary group-hover:text-white">payments</span>
+</div>
+<h3 class="text-xl font-bold text-primary mb-2">Invest</h3>
+<p class="text-primary/60 text-sm">Secure your stake with our streamlined digital platform.</p>
+</div>
+<!-- Step 4 -->
+<div class="relative flex flex-col items-center text-center group">
+<div class="size-24 rounded-full bg-background-light border-4 border-white shadow-lg flex items-center justify-center mb-6 group-hover:bg-primary transition-colors duration-500 z-10">
+<span class="material-symbols-outlined text-4xl text-primary group-hover:text-white">trending_up</span>
+</div>
+<h3 class="text-xl font-bold text-primary mb-2">Scale</h3>
+<p class="text-primary/60 text-sm">Monitor and grow your diversified investment portfolio.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Opportunity Categories -->
+<section class="py-24 bg-background-light" id="categories">
+<div class="max-w-7xl mx-auto px-6">
+<div class="flex items-end justify-between mb-12">
+<div class="max-w-xl">
+<h2 class="text-primary text-4xl font-black mb-4">Investment Sectors</h2>
+<p class="text-primary/60">Choose from various high-performing industries curated by our analysts.</p>
+</div>
+<button class="text-primary font-bold flex items-center gap-2 hover:gap-3 transition-all">
+                    View All Categories <span class="material-symbols-outlined">arrow_right_alt</span>
+</button>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+<!-- Cat 1 -->
+<div class="bg-white p-8 rounded-2xl border border-primary/5 hover:border-accent hover:shadow-xl transition-all group">
+<div class="size-14 rounded-xl bg-primary/5 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white mb-6 transition-all">
+<span class="material-symbols-outlined text-3xl">restaurant</span>
+</div>
+<h4 class="text-xl font-bold text-primary mb-2">Food &amp; Bev</h4>
+<p class="text-primary/50 text-xs uppercase tracking-widest font-bold">12 Active Offers</p>
+</div>
+<!-- Cat 2 -->
+<div class="bg-white p-8 rounded-2xl border border-primary/5 hover:border-accent hover:shadow-xl transition-all group">
+<div class="size-14 rounded-xl bg-primary/5 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white mb-6 transition-all">
+<span class="material-symbols-outlined text-3xl">precision_manufacturing</span>
+</div>
+<h4 class="text-xl font-bold text-primary mb-2">Service Tech</h4>
+<p class="text-primary/50 text-xs uppercase tracking-widest font-bold">8 Active Offers</p>
+</div>
+<!-- Cat 3 -->
+<div class="bg-white p-8 rounded-2xl border border-primary/5 hover:border-accent hover:shadow-xl transition-all group">
+<div class="size-14 rounded-xl bg-primary/5 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white mb-6 transition-all">
+<span class="material-symbols-outlined text-3xl">shopping_bag</span>
+</div>
+<h4 class="text-xl font-bold text-primary mb-2">Retail</h4>
+<p class="text-primary/50 text-xs uppercase tracking-widest font-bold">15 Active Offers</p>
+</div>
+<!-- Cat 4 -->
+<div class="bg-white p-8 rounded-2xl border border-primary/5 hover:border-accent hover:shadow-xl transition-all group">
+<div class="size-14 rounded-xl bg-primary/5 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white mb-6 transition-all">
+<span class="material-symbols-outlined text-3xl">health_and_safety</span>
+</div>
+<h4 class="text-xl font-bold text-primary mb-2">Healthcare</h4>
+<p class="text-primary/50 text-xs uppercase tracking-widest font-bold">5 Active Offers</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Comparison Table -->
+<section class="py-24 bg-white overflow-hidden">
+<div class="max-w-7xl mx-auto px-6">
+<div class="text-center mb-16">
+<h2 class="text-primary text-4xl font-black mb-4">Choose Your Strategy</h2>
+<p class="text-primary/60">Passive yields or hands-on management? We support both paths.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+<!-- Passive Card -->
+<div class="border-2 border-accent/20 bg-accent/5 rounded-2xl p-8 flex flex-col relative">
+<div class="absolute top-6 right-6 px-3 py-1 bg-accent/20 text-primary text-[10px] font-black uppercase tracking-widest rounded-full">Recommended</div>
+<div class="flex items-center gap-4 mb-8">
+<div class="size-12 bg-accent rounded-lg flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-2xl">blind</span>
+</div>
+<h3 class="text-2xl font-black text-primary">Passive Model</h3>
+</div>
+<ul class="flex flex-col gap-5 flex-1">
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-accent text-xl">check_circle</span>
+<span class="text-primary/80 font-medium">Hands-off management</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-accent text-xl">check_circle</span>
+<span class="text-primary/80 font-medium">Professional operator managed</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-accent text-xl">check_circle</span>
+<span class="text-primary/80 font-medium">Lower involvement, steady ROI</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-accent text-xl">check_circle</span>
+<span class="text-primary/80 font-medium">Quarterly profit distributions</span>
+</li>
+</ul>
+<button class="w-full mt-10 bg-primary text-white py-4 rounded-xl font-bold">Explore Passive</button>
+</div>
+<!-- Active Card -->
+<div class="border-2 border-primary/10 bg-white rounded-2xl p-8 flex flex-col">
+<div class="flex items-center gap-4 mb-8">
+<div class="size-12 bg-primary/10 rounded-lg flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-2xl">engineering</span>
+</div>
+<h3 class="text-2xl font-black text-primary">Active Model</h3>
+</div>
+<ul class="flex flex-col gap-5 flex-1">
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary/40 text-xl">check_circle</span>
+<span class="text-primary/80 font-medium">Owner-operator structure</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary/40 text-xl">check_circle</span>
+<span class="text-primary/80 font-medium">Direct control over operations</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary/40 text-xl">check_circle</span>
+<span class="text-primary/80 font-medium">Higher potential upside</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary/40 text-xl">check_circle</span>
+<span class="text-primary/80 font-medium">Full business control</span>
+</li>
+</ul>
+<button class="w-full mt-10 border-2 border-primary text-primary py-4 rounded-xl font-bold hover:bg-primary hover:text-white transition-all">Explore Active</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Qualification Form -->
+<section class="py-24 bg-primary relative">
+<div class="absolute inset-0 opacity-5 pointer-events-none bg-[url('https://www.transparenttextures.com/patterns/cubes.png')]"></div>
+<div class="max-w-7xl mx-auto px-6 relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+<div>
+<h2 class="text-white text-4xl font-black mb-6">Ready to Build Your Portfolio?</h2>
+<p class="text-white/70 text-lg mb-8">Complete this brief qualification to see opportunities tailored to your investment capacity and goals.</p>
+<div class="flex flex-col gap-6">
+<div class="flex items-center gap-4 text-white/90">
+<div class="size-10 rounded-full bg-white/10 flex items-center justify-center">1</div>
+<p class="font-bold">Fast verification process</p>
+</div>
+<div class="flex items-center gap-4 text-white/90">
+<div class="size-10 rounded-full bg-white/10 flex items-center justify-center">2</div>
+<p class="font-bold">Exclusive early-access deals</p>
+</div>
+<div class="flex items-center gap-4 text-white/90">
+<div class="size-10 rounded-full bg-white/10 flex items-center justify-center">3</div>
+<p class="font-bold">Direct consultant access</p>
+</div>
+</div>
+</div>
+<div class="bg-white p-10 rounded-2xl shadow-2xl">
+<form class="flex flex-col gap-6">
+<div class="flex flex-col gap-2">
+<label class="text-sm font-bold text-primary/60 uppercase tracking-widest">Investment Capital Range</label>
+<select class="w-full border-primary/10 rounded-lg py-3 focus:ring-accent focus:border-accent">
+<option>$2,000 - $10,000</option>
+<option>$10,000 - $50,000</option>
+<option>$50,000 - $250,000</option>
+<option>$250,000+</option>
+</select>
+</div>
+<div class="flex flex-col gap-2">
+<label class="text-sm font-bold text-primary/60 uppercase tracking-widest">Investor Type</label>
+<select class="w-full border-primary/10 rounded-lg py-3 focus:ring-accent focus:border-accent">
+<option>Individual Investor</option>
+<option>Institutional/Corporate</option>
+<option>Family Office</option>
+</select>
+</div>
+<div class="flex flex-col gap-2">
+<label class="text-sm font-bold text-primary/60 uppercase tracking-widest">Investment Timeline</label>
+<select class="w-full border-primary/10 rounded-lg py-3 focus:ring-accent focus:border-accent">
+<option>ASAP (Next 30 days)</option>
+<option>1-3 Months</option>
+<option>Exploring / 6 Months+</option>
+</select>
+</div>
+<button class="bg-accent text-primary w-full py-4 rounded-xl font-black text-lg mt-4 cyan-glow transition-all" type="submit">
+                        Check My Eligibility
+                    </button>
+</form>
+</div>
+</div>
+</section>
+<!-- FAQ Section -->
+<section class="py-24 bg-white" id="faq">
+<div class="max-w-3xl mx-auto px-6">
+<h2 class="text-primary text-4xl font-black mb-12 text-center">Frequently Asked Questions</h2>
+<div class="flex flex-col gap-4">
+<details class="group bg-background-light rounded-xl p-6 border border-primary/5 cursor-pointer">
+<summary class="list-none flex justify-between items-center font-bold text-primary">
+                        How is the $2,000 minimum possible?
+                        <span class="material-symbols-outlined group-open:rotate-180 transition-transform">expand_more</span>
+</summary>
+<p class="mt-4 text-primary/60 text-sm leading-relaxed">
+                        We use a fractional ownership model that allows multiple investors to pool resources into a single franchise unit. This lowers the entry barrier while maintaining the same proportional ROI as a sole owner.
+                    </p>
+</details>
+<details class="group bg-background-light rounded-xl p-6 border border-primary/5 cursor-pointer">
+<summary class="list-none flex justify-between items-center font-bold text-primary">
+                        What is the average ROI for your franchises?
+                        <span class="material-symbols-outlined group-open:rotate-180 transition-transform">expand_more</span>
+</summary>
+<p class="mt-4 text-primary/60 text-sm leading-relaxed">
+                        While ROI varies by sector, our curated portfolio typically aims for 12-18% annual returns. Detailed financial projections are available for each verified investor.
+                    </p>
+</details>
+<details class="group bg-background-light rounded-xl p-6 border border-primary/5 cursor-pointer">
+<summary class="list-none flex justify-between items-center font-bold text-primary">
+                        Can I sell my stake later?
+                        <span class="material-symbols-outlined group-open:rotate-180 transition-transform">expand_more</span>
+</summary>
+<p class="mt-4 text-primary/60 text-sm leading-relaxed">
+                        Yes, we have a secondary market where investors can list their shares for sale to other verified users on the e-Franquicias platform after an initial lock-in period.
+                    </p>
+</details>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="bg-background-dark text-white/60 py-20">
+<div class="max-w-7xl mx-auto px-6">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
+<div class="col-span-1 md:col-span-1">
+<div class="flex items-center gap-3 text-white mb-6">
+<div class="size-8 bg-primary rounded flex items-center justify-center">
+<span class="material-symbols-outlined text-xl">account_balance</span>
+</div>
+<h2 class="text-xl font-bold tracking-tight">e-Franquicias</h2>
+</div>
+<p class="text-sm leading-relaxed">Democratizing franchise investment through technology and expert curation.</p>
+</div>
+<div>
+<h5 class="text-white font-bold mb-6">Platform</h5>
+<ul class="flex flex-col gap-4 text-sm">
+<li><a class="hover:text-accent transition-colors" href="#">How it works</a></li>
+<li><a class="hover:text-accent transition-colors" href="#">Opportunities</a></li>
+<li><a class="hover:text-accent transition-colors" href="#">Categories</a></li>
+<li><a class="hover:text-accent transition-colors" href="#">Pricing</a></li>
+</ul>
+</div>
+<div>
+<h5 class="text-white font-bold mb-6">Legal</h5>
+<ul class="flex flex-col gap-4 text-sm">
+<li><a class="hover:text-accent transition-colors" href="#">Terms of Service</a></li>
+<li><a class="hover:text-accent transition-colors" href="#">Privacy Policy</a></li>
+<li><a class="hover:text-accent transition-colors" href="#">Cookie Policy</a></li>
+<li><a class="hover:text-accent transition-colors" href="#">Disclosures</a></li>
+</ul>
+</div>
+<div>
+<h5 class="text-white font-bold mb-6">Newsletter</h5>
+<p class="text-sm mb-4">Get early access to new investment opportunities.</p>
+<div class="flex gap-2">
+<input class="bg-white/5 border-white/10 rounded-lg text-sm w-full py-2" placeholder="Email" type="email"/>
+<button class="bg-accent text-primary px-4 rounded-lg material-symbols-outlined">send</button>
+</div>
+</div>
+</div>
+<div class="pt-8 border-t border-white/5 text-xs text-center leading-relaxed">
+<p class="max-w-4xl mx-auto mb-4">Investment in franchises involves risk and may result in the loss of principal. Projected returns are not guarantees of future results. Past performance does not guarantee future success. Please consult with a financial advisor before making any investment decisions.</p>
+<p>© 2024 e-Franquicias Global S.A. All rights reserved.</p>
+</div>
+</div>
+</footer>
+</body></html>
