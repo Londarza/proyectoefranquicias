@@ -98,7 +98,7 @@ export function LeadForm() {
     <section id="contacto" className={cn(sectionPadding, "relative overflow-hidden bg-primary")}>
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_left,_rgba(0,229,255,0.22),transparent_52%)] opacity-40"
+        className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(0,229,255,0.22),transparent_52%)] opacity-40"
       />
 
       <Container className="relative z-10 grid items-start gap-12 lg:grid-cols-2">
