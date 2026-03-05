@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { ShieldCheck } from "lucide-react";
 
 import { heroHighlights } from "@/src/lib/landing";
 import { buttonStyles, cn, Container, Section } from "@/src/components/landing/ui";
@@ -14,9 +15,7 @@ export function Hero() {
       <Container className="grid items-center gap-12 lg:grid-cols-2">
         <div className="space-y-8">
           <div className="inline-flex items-center gap-2 rounded-full bg-primary/10 px-4 py-1.5">
-            <span className="material-symbols-outlined text-base text-primary" aria-hidden="true">
-              verified
-            </span>
+            <ShieldCheck className="size-4 text-primary" aria-hidden="true" />
             <span className="text-xs font-bold uppercase tracking-[0.12em] text-primary">
               Curacion profesional de oportunidades
             </span>
@@ -35,9 +34,7 @@ export function Hero() {
           <ul className="space-y-3">
             {heroHighlights.map((item) => (
               <li key={item.text} className="flex items-start gap-3">
-                <span className="material-symbols-outlined text-accent" aria-hidden="true">
-                  {item.icon}
-                </span>
+                <item.icon className="mt-0.5 size-5 text-accent" aria-hidden="true" />
                 <span className="text-sm font-medium leading-relaxed text-primary/80 sm:text-base">
                   {item.text}
                 </span>

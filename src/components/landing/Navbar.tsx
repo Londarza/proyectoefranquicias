@@ -1,3 +1,5 @@
+import { Building2, Menu } from "lucide-react";
+
 import { navLinks } from "@/src/lib/landing";
 import { buttonStyles, cn, Container } from "@/src/components/landing/ui";
 
@@ -14,9 +16,7 @@ export function Navbar() {
           aria-label="Ir al inicio de e-Franquicias"
         >
           <span className="flex size-10 items-center justify-center rounded-lg bg-primary text-white shadow-sm">
-            <span className="material-symbols-outlined text-2xl" aria-hidden="true">
-              account_balance
-            </span>
+            <Building2 className="size-6" aria-hidden="true" />
           </span>
           <span className="text-lg font-extrabold tracking-tight text-primary sm:text-xl">
             e-Franquicias
@@ -52,9 +52,7 @@ export function Navbar() {
               )}
               aria-label="Abrir menu"
             >
-              <span className="material-symbols-outlined text-base" aria-hidden="true">
-                menu
-              </span>
+              <Menu className="size-4" aria-hidden="true" />
             </summary>
             <div className="absolute right-0 top-12 w-52 rounded-xl border border-primary/10 bg-white p-3 shadow-xl">
               <div className="flex flex-col gap-2">

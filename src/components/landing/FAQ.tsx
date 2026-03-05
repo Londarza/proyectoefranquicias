@@ -1,3 +1,5 @@
+import { ChevronDown } from "lucide-react";
+
 import { faqItems } from "@/src/lib/landing";
 import { Container, Section, SectionHeading } from "@/src/components/landing/ui";
 
@@ -15,12 +17,10 @@ export function FAQ() {
             >
               <summary className="flex cursor-pointer list-none items-start justify-between gap-4 text-left text-base font-bold text-primary">
                 {item.question}
-                <span
-                  className="material-symbols-outlined text-primary/70 transition-transform group-open:rotate-180"
+                <ChevronDown
+                  className="size-5 text-primary/70 transition-transform group-open:rotate-180"
                   aria-hidden="true"
-                >
-                  expand_more
-                </span>
+                />
               </summary>
               <p className="mt-3 text-sm leading-relaxed text-primary/70">{item.answer}</p>
             </details>

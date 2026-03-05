@@ -22,13 +22,6 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="es" suppressHydrationWarning>
-      <head>
-        {/* eslint-disable-next-line @next/next/no-page-custom-font */}
-        <link
-          rel="stylesheet"
-          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,100..700,0..1,0&display=optional"
-        />
-      </head>
       <body
         className={`${manrope.variable} font-display bg-background-light text-[#141217] antialiased selection:bg-accent/30`}
       >

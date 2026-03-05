@@ -23,9 +23,7 @@ export function HowItWorks() {
               className="group relative rounded-2xl border border-primary/10 bg-background-light p-6 text-center shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg"
             >
               <div className="mx-auto mb-5 flex size-16 items-center justify-center rounded-2xl bg-white text-primary shadow-sm transition-colors group-hover:bg-primary group-hover:text-white">
-                <span className="material-symbols-outlined text-3xl" aria-hidden="true">
-                  {step.icon}
-                </span>
+                <step.icon className="size-8" aria-hidden="true" />
               </div>
               <h3 className="text-lg font-bold text-primary">{step.title}</h3>
               <p className="mt-2 text-sm leading-relaxed text-primary/70">{step.description}</p>

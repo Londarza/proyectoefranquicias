@@ -1,3 +1,5 @@
+import { CircleCheck } from "lucide-react";
+
 import { strategyCards } from "@/src/lib/landing";
 import {
   buttonStyles,
@@ -44,9 +46,7 @@ export function Strategy() {
                       isHighlighted ? "bg-accent text-primary" : "bg-primary/10 text-primary",
                     )}
                   >
-                    <span className="material-symbols-outlined text-2xl" aria-hidden="true">
-                      {card.icon}
-                    </span>
+                    <card.icon className="size-6" aria-hidden="true" />
                   </div>
                   <h3 className="text-2xl font-extrabold text-primary">{card.title}</h3>
                 </div>
@@ -54,15 +54,13 @@ export function Strategy() {
                 <ul className="flex flex-1 flex-col gap-3">
                   {card.items.map((item) => (
                     <li key={item} className="flex items-start gap-2.5">
-                      <span
+                      <CircleCheck
                         className={cn(
-                          "material-symbols-outlined mt-0.5 text-base",
+                          "mt-0.5 size-4 shrink-0",
                           isHighlighted ? "text-accent" : "text-primary/50",
                         )}
                         aria-hidden="true"
-                      >
-                        check_circle
-                      </span>
+                      />
                       <span className="text-sm leading-relaxed text-primary/80">{item}</span>
                     </li>
                   ))}

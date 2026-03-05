@@ -1,28 +1,43 @@
+import type { LucideIcon } from "lucide-react";
+import {
+  BarChart3,
+  CircleCheck,
+  Factory,
+  HeartPulse,
+  Search,
+  ShoppingBag,
+  TrendingUp,
+  Users,
+  UtensilsCrossed,
+  Wallet,
+  Wrench,
+} from "lucide-react";
+
 export type NavLink = {
   href: string;
   label: string;
 };
 
 export type HeroHighlight = {
-  icon: string;
+  icon: LucideIcon;
   text: string;
 };
 
 export type ProcessStep = {
-  icon: string;
+  icon: LucideIcon;
   title: string;
   description: string;
 };
 
 export type Category = {
-  icon: string;
+  icon: LucideIcon;
   title: string;
   description: string;
 };
 
 export type StrategyCard = {
   title: string;
-  icon: string;
+  icon: LucideIcon;
   badge?: string;
   highlighted?: boolean;
   actionLabel: string;
@@ -48,37 +63,37 @@ export const navLinks: NavLink[] = [
 
 export const heroHighlights: HeroHighlight[] = [
   {
-    icon: "check_circle",
+    icon: CircleCheck,
     text: "Seleccion curada de franquicias en distintos rubros.",
   },
   {
-    icon: "check_circle",
+    icon: CircleCheck,
     text: "Informacion clara para comparar opciones con criterio.",
   },
   {
-    icon: "check_circle",
+    icon: CircleCheck,
     text: "Alternativas para perfiles activos, pasivos o mixtos.",
   },
 ];
 
 export const howItWorksSteps: ProcessStep[] = [
   {
-    icon: "search",
+    icon: Search,
     title: "Explora",
     description: "Revisa oportunidades y conoce cada propuesta con detalle.",
   },
   {
-    icon: "analytics",
+    icon: BarChart3,
     title: "Evalua",
     description: "Compara variables clave para elegir con una mirada integral.",
   },
   {
-    icon: "payments",
+    icon: Wallet,
     title: "Define",
     description: "Selecciona un camino alineado con tu capital y tus tiempos.",
   },
   {
-    icon: "trending_up",
+    icon: TrendingUp,
     title: "Acompana",
     description: "Hace seguimiento de tu estrategia con soporte del equipo.",
   },
@@ -86,22 +101,22 @@ export const howItWorksSteps: ProcessStep[] = [
 
 export const categories: Category[] = [
   {
-    icon: "restaurant",
+    icon: UtensilsCrossed,
     title: "Gastronomia",
     description: "Marcas de consumo frecuente con modelos operativos estandarizados.",
   },
   {
-    icon: "precision_manufacturing",
+    icon: Factory,
     title: "Servicios",
     description: "Negocios de base tecnica orientados a demanda recurrente.",
   },
   {
-    icon: "shopping_bag",
+    icon: ShoppingBag,
     title: "Retail",
     description: "Conceptos comerciales para ubicaciones estrategicas.",
   },
   {
-    icon: "health_and_safety",
+    icon: HeartPulse,
     title: "Bienestar",
     description: "Propuestas vinculadas a salud, cuidado personal y calidad de vida.",
   },
@@ -110,7 +125,7 @@ export const categories: Category[] = [
 export const strategyCards: StrategyCard[] = [
   {
     title: "Modelo Pasivo",
-    icon: "groups",
+    icon: Users,
     badge: "Sugerido para delegar",
     highlighted: true,
     actionLabel: "Conocer modalidad pasiva",
@@ -123,7 +138,7 @@ export const strategyCards: StrategyCard[] = [
   },
   {
     title: "Modelo Activo",
-    icon: "engineering",
+    icon: Wrench,
     actionLabel: "Conocer modalidad activa",
     items: [
       "Mayor participacion en la operacion del negocio.",

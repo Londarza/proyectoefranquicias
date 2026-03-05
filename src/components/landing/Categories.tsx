@@ -28,9 +28,7 @@ export function Categories() {
               className="group rounded-2xl border border-primary/10 bg-white p-6 shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-accent/40 hover:shadow-lg"
             >
               <div className="mb-5 flex size-12 items-center justify-center rounded-xl bg-primary/5 text-primary transition-all group-hover:bg-primary group-hover:text-white">
-                <span className="material-symbols-outlined text-2xl" aria-hidden="true">
-                  {category.icon}
-                </span>
+                <category.icon className="size-6" aria-hidden="true" />
               </div>
               <h3 className="text-lg font-bold text-primary">{category.title}</h3>
               <p className="mt-2 text-sm leading-relaxed text-primary/70">

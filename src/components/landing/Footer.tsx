@@ -1,3 +1,5 @@
+import { Building2, Send } from "lucide-react";
+
 import { footerLinkGroups } from "@/src/lib/landing";
 import { Container } from "@/src/components/landing/ui";
 
@@ -12,9 +14,7 @@ export function Footer() {
               className="inline-flex items-center gap-3 rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
             >
               <span className="flex size-9 items-center justify-center rounded-md bg-primary text-white">
-                <span className="material-symbols-outlined text-xl" aria-hidden="true">
-                  account_balance
-                </span>
+                <Building2 className="size-5" aria-hidden="true" />
               </span>
               <span className="text-lg font-bold text-white">e-Franquicias</span>
             </a>
@@ -66,9 +66,7 @@ export function Footer() {
                 className="rounded-lg bg-accent px-3 text-primary transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg"
                 aria-label="Enviar email de newsletter"
               >
-                <span className="material-symbols-outlined text-base" aria-hidden="true">
-                  send
-                </span>
+                <Send className="size-4" aria-hidden="true" />
               </button>
             </div>
           </div>
