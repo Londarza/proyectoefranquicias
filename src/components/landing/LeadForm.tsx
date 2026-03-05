@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, type ChangeEvent, type FormEvent } from "react";
+import { MessageCircle } from "lucide-react";
 
 import {
   capitalOptions,
@@ -8,6 +9,12 @@ import {
   plazoOptions,
   tipoOptions,
 } from "@/src/lib/landing";
+import {
+  buildWhatsAppHref,
+  emailJsConfig,
+  isEmailJsConfigured,
+  whatsappHref,
+} from "@/src/lib/contact";
 import { buttonStyles, cn, Container, sectionPadding } from "@/src/components/landing/ui";
 
 type LeadFormValues = {
@@ -17,9 +24,11 @@ type LeadFormValues = {
   capital: string;
   tipo: string;
   plazo: string;
+  consentimiento: boolean;
 };
 
 type LeadFormErrors = Partial<Record<keyof LeadFormValues, string>>;
+type LeadTextField = Exclude<keyof LeadFormValues, "consentimiento">;
 
 const initialValues: LeadFormValues = {
   nombre: "",
@@ -28,6 +37,7 @@ const initialValues: LeadFormValues = {
   capital: "",
   tipo: "",
   plazo: "",
+  consentimiento: false,
 };
 
 function validate(values: LeadFormValues) {
@@ -40,29 +50,70 @@ function validate(values: LeadFormValues) {
   } else if (!emailRegex.test(values.email)) {
     errors.email = "Ingresa un email valido.";
   }
-  if (!values.telefono.trim()) errors.telefono = "Ingresa tu WhatsApp o telefono.";
-  if (!values.capital) errors.capital = "Selecciona un rango de capital.";
-  if (!values.tipo) errors.tipo = "Selecciona un tipo de participacion.";
-  if (!values.plazo) errors.plazo = "Selecciona un plazo estimado.";
+  if (values.telefono.trim() && values.telefono.trim().length < 6) {
+    errors.telefono = "Ingresa un telefono valido.";
+  }
+  if (!values.consentimiento) {
+    errors.consentimiento = "Debes aceptar el consentimiento para enviar la consulta.";
+  }
 
   return errors;
+}
+
+async function sendLead(values: LeadFormValues) {
+  if (!isEmailJsConfigured()) {
+    throw new Error("EMAILJS_NOT_CONFIGURED");
+  }
+
+  const response = await fetch(emailJsConfig.endpoint, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      service_id: emailJsConfig.serviceId,
+      template_id: emailJsConfig.templateId,
+      user_id: emailJsConfig.publicKey,
+      template_params: {
+        to_email: "info@vistadelta.com.ar",
+        from_name: values.nombre.trim(),
+        from_email: values.email.trim(),
+        phone: values.telefono.trim() || "No informado",
+        capital: values.capital || "No informado",
+        participation_type: values.tipo || "No informado",
+        investment_timeline: values.plazo || "No informado",
+        consent: values.consentimiento ? "Si" : "No",
+        source: "e-franquicias.vercel.app",
+      },
+    }),
+  });
+
+  if (!response.ok) {
+    throw new Error("EMAILJS_REQUEST_FAILED");
+  }
 }
 
 export function LeadForm() {
   const [values, setValues] = useState<LeadFormValues>(initialValues);
   const [errors, setErrors] = useState<LeadFormErrors>({});
   const [isSending, setIsSending] = useState(false);
-  const [isSuccess, setIsSuccess] = useState(false);
+  const [status, setStatus] = useState<"idle" | "success" | "error">("idle");
 
   const handleChange =
-    (field: keyof LeadFormValues) =>
+    (field: LeadTextField) =>
     (event: ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
       const nextValue = event.target.value;
 
       setValues((prev) => ({ ...prev, [field]: nextValue }));
       setErrors((prev) => ({ ...prev, [field]: undefined }));
-      if (isSuccess) setIsSuccess(false);
+      if (status !== "idle") setStatus("idle");
     };
+
+  const handleConsentChange = (event: ChangeEvent<HTMLInputElement>) => {
+    setValues((prev) => ({ ...prev, consentimiento: event.target.checked }));
+    setErrors((prev) => ({ ...prev, consentimiento: undefined }));
+    if (status !== "idle") setStatus("idle");
+  };
 
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -70,20 +121,27 @@ export function LeadForm() {
     const nextErrors = validate(values);
     if (Object.keys(nextErrors).length > 0) {
       setErrors(nextErrors);
-      setIsSuccess(false);
+      setStatus("idle");
       return;
     }
 
     setErrors({});
     setIsSending(true);
 
-    await new Promise((resolve) => setTimeout(resolve, 800));
-    console.log("lead-form-submit", values);
-
-    setIsSending(false);
-    setIsSuccess(true);
-    setValues(initialValues);
+    try {
+      await sendLead(values);
+      setStatus("success");
+      setValues(initialValues);
+    } catch {
+      setStatus("error");
+    } finally {
+      setIsSending(false);
+    }
   };
+
+  const whatsappContactHref = buildWhatsAppHref(
+    "Hola, quiero consultar por e-Franquicias y recibir asesoramiento.",
+  );
 
   const getFieldClassName = (hasError?: string) =>
     cn(
@@ -136,6 +194,7 @@ export function LeadForm() {
                 className={getFieldClassName(errors.nombre)}
                 placeholder="Ej. Ana Rodriguez"
                 autoComplete="name"
+                required
                 aria-invalid={Boolean(errors.nombre)}
                 aria-describedby={errors.nombre ? "nombre-error" : undefined}
               />
@@ -159,6 +218,7 @@ export function LeadForm() {
                 className={getFieldClassName(errors.email)}
                 placeholder="tu@email.com"
                 autoComplete="email"
+                required
                 aria-invalid={Boolean(errors.email)}
                 aria-describedby={errors.email ? "email-error" : undefined}
               />
@@ -171,7 +231,7 @@ export function LeadForm() {
 
             <div className="space-y-1.5">
               <label htmlFor="telefono" className="text-sm font-semibold text-primary/80">
-                WhatsApp o telefono
+                WhatsApp o telefono (opcional)
               </label>
               <input
                 id="telefono"
@@ -194,16 +254,14 @@ export function LeadForm() {
             <div className="grid gap-4 sm:grid-cols-2">
               <div className="space-y-1.5">
                 <label htmlFor="capital" className="text-sm font-semibold text-primary/80">
-                  Capital estimado
+                  Capital estimado (opcional)
                 </label>
                 <select
                   id="capital"
                   name="capital"
                   value={values.capital}
                   onChange={handleChange("capital")}
-                  className={getFieldClassName(errors.capital)}
-                  aria-invalid={Boolean(errors.capital)}
-                  aria-describedby={errors.capital ? "capital-error" : undefined}
+                  className={getFieldClassName()}
                 >
                   <option value="">Seleccionar</option>
                   {capitalOptions.map((option) => (
@@ -212,25 +270,18 @@ export function LeadForm() {
                     </option>
                   ))}
                 </select>
-                {errors.capital ? (
-                  <p id="capital-error" className="text-xs font-medium text-red-500">
-                    {errors.capital}
-                  </p>
-                ) : null}
               </div>
 
               <div className="space-y-1.5">
                 <label htmlFor="tipo" className="text-sm font-semibold text-primary/80">
-                  Tipo de participacion
+                  Tipo de participacion (opcional)
                 </label>
                 <select
                   id="tipo"
                   name="tipo"
                   value={values.tipo}
                   onChange={handleChange("tipo")}
-                  className={getFieldClassName(errors.tipo)}
-                  aria-invalid={Boolean(errors.tipo)}
-                  aria-describedby={errors.tipo ? "tipo-error" : undefined}
+                  className={getFieldClassName()}
                 >
                   <option value="">Seleccionar</option>
                   {tipoOptions.map((option) => (
@@ -239,26 +290,19 @@ export function LeadForm() {
                     </option>
                   ))}
                 </select>
-                {errors.tipo ? (
-                  <p id="tipo-error" className="text-xs font-medium text-red-500">
-                    {errors.tipo}
-                  </p>
-                ) : null}
               </div>
             </div>
 
             <div className="space-y-1.5">
               <label htmlFor="plazo" className="text-sm font-semibold text-primary/80">
-                Plazo para invertir
+                Plazo para invertir (opcional)
               </label>
               <select
                 id="plazo"
                 name="plazo"
                 value={values.plazo}
                 onChange={handleChange("plazo")}
-                className={getFieldClassName(errors.plazo)}
-                aria-invalid={Boolean(errors.plazo)}
-                aria-describedby={errors.plazo ? "plazo-error" : undefined}
+                className={getFieldClassName()}
               >
                 <option value="">Seleccionar</option>
                 {plazoOptions.map((option) => (
@@ -267,34 +311,95 @@ export function LeadForm() {
                   </option>
                 ))}
               </select>
-              {errors.plazo ? (
-                <p id="plazo-error" className="text-xs font-medium text-red-500">
-                  {errors.plazo}
+            </div>
+
+            <div className="space-y-1.5">
+              <label className="flex items-start gap-3">
+                <input
+                  id="consentimiento"
+                  name="consentimiento"
+                  type="checkbox"
+                  checked={values.consentimiento}
+                  onChange={handleConsentChange}
+                  required
+                  className="mt-0.5 size-4 rounded border-primary/25 text-primary focus:ring-accent"
+                  aria-invalid={Boolean(errors.consentimiento)}
+                  aria-describedby={errors.consentimiento ? "consentimiento-error" : undefined}
+                />
+                <span className="text-sm leading-relaxed text-primary/75">
+                  Acepto ser contactado por el equipo de e-Franquicias para recibir
+                  informacion sobre oportunidades y asesoramiento.
+                </span>
+              </label>
+              {errors.consentimiento ? (
+                <p id="consentimiento-error" className="text-xs font-medium text-red-500">
+                  {errors.consentimiento}
                 </p>
               ) : null}
             </div>
 
-            <button
-              type="submit"
-              disabled={isSending}
-              className={cn(
-                buttonStyles.base,
-                buttonStyles.primary,
-                "mt-2 w-full py-3.5 text-base",
-                isSending && "cursor-not-allowed opacity-70",
-              )}
-            >
-              {isSending ? "Enviando..." : "Simular precalificacion"}
-            </button>
+            <div className="mt-2 grid gap-3 sm:grid-cols-2">
+              <button
+                type="submit"
+                disabled={isSending}
+                className={cn(
+                  buttonStyles.base,
+                  buttonStyles.primary,
+                  "w-full py-3.5 text-base",
+                  isSending && "cursor-not-allowed opacity-70",
+                )}
+              >
+                {isSending ? "Enviando..." : "Enviar consulta"}
+              </button>
 
-            {isSuccess ? (
+              <a
+                href={whatsappContactHref}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={cn(
+                  buttonStyles.base,
+                  "w-full border border-[#25D366]/40 bg-[#25D366]/10 text-[#1a7a42] hover:-translate-y-0.5 hover:bg-[#25D366]/15",
+                )}
+              >
+                <MessageCircle className="mr-2 size-4" aria-hidden="true" />
+                Consultar por WhatsApp
+              </a>
+            </div>
+
+            <p className="text-xs leading-relaxed text-primary/60">
+              Tiempo estimado de respuesta: dentro de las proximas 24 horas habiles.
+            </p>
+
+            {status === "success" ? (
               <p
                 role="status"
                 className="rounded-lg border border-emerald-200 bg-emerald-50 px-3 py-2 text-sm font-medium text-emerald-700"
               >
-                Envio simulado con exito. Revisa la consola para ver el payload.
+                Recibimos tu consulta. En breve te contactaremos.
               </p>
             ) : null}
+
+            {status === "error" ? (
+              <p
+                role="status"
+                className="rounded-lg border border-amber-200 bg-amber-50 px-3 py-2 text-sm font-medium text-amber-800"
+              >
+                No se pudo enviar. Escribinos por WhatsApp.
+              </p>
+            ) : null}
+
+            <p className="text-sm text-primary/75">
+              Si preferis resolverlo ahora, escribinos directo por{" "}
+              <a
+                href={whatsappHref}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-semibold text-primary underline underline-offset-2"
+              >
+                WhatsApp
+              </a>
+              .
+            </p>
           </form>
         </div>
       </Container>

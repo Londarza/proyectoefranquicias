@@ -6,6 +6,7 @@ import { HowItWorks } from "@/src/components/landing/HowItWorks";
 import { LeadForm } from "@/src/components/landing/LeadForm";
 import { Navbar } from "@/src/components/landing/Navbar";
 import { Strategy } from "@/src/components/landing/Strategy";
+import { WhatsAppFloat } from "@/src/components/landing/WhatsAppFloat";
 
 export default function Home() {
   return (
@@ -20,6 +21,7 @@ export default function Home() {
         <FAQ />
       </main>
       <Footer />
+      <WhatsAppFloat />
     </>
   );
 }
