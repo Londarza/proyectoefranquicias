@@ -1,4 +1,5 @@
-import { Building2, Send } from "lucide-react";
+import Image from "next/image";
+import { Send } from "lucide-react";
 
 import { footerLinkGroups } from "@/src/lib/landing";
 import { Container } from "@/src/components/landing/ui";
@@ -8,16 +9,22 @@ export function Footer() {
     <footer className="bg-background-dark py-16 text-white/70">
       <Container>
         <div className="grid gap-10 md:grid-cols-4">
-          <div className="md:col-span-1">
-            <a
-              href="#inicio"
-              className="inline-flex items-center gap-3 rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
-            >
-              <span className="flex size-9 items-center justify-center rounded-md bg-primary text-white">
-                <Building2 className="size-5" aria-hidden="true" />
-              </span>
-              <span className="text-lg font-bold text-white">e-Franquicias</span>
-            </a>
+          <div className="min-w-0 md:col-span-1">
+            <div className="relative h-[76px]">
+              <a
+                href="#inicio"
+                className="absolute inset-0 inline-flex items-center justify-center rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
+              >
+                <Image
+                  src="/logos/Logo e-franquicias bgt.png"
+                  alt="e-Franquicias"
+                  width={280}
+                  height={74}
+                  sizes="280px"
+                  className="h-auto w-[220px] max-w-none object-contain scale-120"
+                />
+              </a>
+            </div>
             <p className="mt-4 text-sm leading-relaxed text-white/70">
               Plataforma para explorar franquicias seleccionadas con una mirada
               estrategica.

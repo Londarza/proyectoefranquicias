@@ -1,4 +1,5 @@
-import { Building2, Menu } from "lucide-react";
+import Image from "next/image";
+import { Menu } from "lucide-react";
 
 import { navLinks } from "@/src/lib/landing";
 import { buttonStyles, cn, Container } from "@/src/components/landing/ui";
@@ -15,11 +16,15 @@ export function Navbar() {
           className="inline-flex items-center gap-3 rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background-light"
           aria-label="Ir al inicio de e-Franquicias"
         >
-          <span className="flex size-10 items-center justify-center rounded-lg bg-primary text-white shadow-sm">
-            <Building2 className="size-6" aria-hidden="true" />
-          </span>
-          <span className="text-lg font-extrabold tracking-tight text-primary sm:text-xl">
-            e-Franquicias
+          <span className="relative block h-10 w-[164px]">
+            <Image
+              src="/logos/Logo e-franquicias bgt.png"
+              alt="e-Franquicias"
+              fill
+              priority
+              sizes="164px"
+              className="object-contain scale-400 origin-center"
+            />
           </span>
         </a>
 
