@@ -13,6 +13,11 @@ export const metadata: Metadata = {
   title: "e-Franquicias",
   description:
     "Plataforma para explorar oportunidades de franquicias con informacion clara y acompanamiento profesional.",
+  icons: {
+    icon: "/icon.png",
+    shortcut: "/icon.png",
+    apple: "/apple-icon.png",
+  },
 };
 
 export default function RootLayout({
